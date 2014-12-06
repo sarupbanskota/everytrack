@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141206185517) do
+ActiveRecord::Schema.define(version: 20141206190719) do
 
   create_table "categories", force: true do |t|
     t.integer  "track_id"
@@ -22,6 +22,15 @@ ActiveRecord::Schema.define(version: 20141206185517) do
 
   add_index "categories", ["track_id"], name: "index_categories_on_track_id"
 
+  create_table "tags", force: true do |t|
+    t.integer  "unit_id"
+    t.string   "tag"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "tags", ["unit_id"], name: "index_tags_on_unit_id"
+
   create_table "tracks", force: true do |t|
     t.integer  "user_id"
     t.datetime "created_at"
@@ -29,6 +38,19 @@ ActiveRecord::Schema.define(version: 20141206185517) do
   end
 
   add_index "tracks", ["user_id"], name: "index_tracks_on_user_id"
+
+  create_table "units", force: true do |t|
+    t.integer  "track_id"
+    t.string   "category"
+    t.integer  "level"
+    t.string   "title"
+    t.text     "content"
+    t.integer  "votes"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "units", ["track_id"], name: "index_units_on_track_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
