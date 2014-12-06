@@ -1,7 +1,6 @@
 Koding::Application.routes.draw do
   devise_for :users
+  resources :tracks
   
-  devise_scope :user do
-    root to: "devise/sessions#new"
-  end
+  root to: "tracks#index"
 end
