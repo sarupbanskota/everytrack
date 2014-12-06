@@ -1,0 +1,40 @@
+.ui.two.column.middle.aligned.relaxed.fitted.stackable.grid
+  .right.aligned.column
+    %h1
+      %i.sign.in.icon
+      Check-in to your everytrack.
+  .column
+    .ui.card
+      .image.dimmable
+        %img{:src => "/images/steve.jpg"}/
+      .content
+        = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+          - if devise_mapping.rememberable?
+            .ui.right.aligned.segment
+              .ui.toggle.checkbox
+                = f.check_box :remember_me, {name: "rememberable"}
+                = f.label :remember_me
+          .two.fields
+            .required.field
+              = f.label :email
+              .ui.icon.input
+                = f.email_field :email, autofocus: true, placeholder: "Email"
+                %i.user.icon
+            %br/
+            .required.field
+              %label Password
+              .ui.icon.input
+                = f.password_field :password, autocomplete: "off", placeholder: "Password"
+                %i.lock.icon
+            %br/
+            = f.submit "Check-in", {class: "ui green basic button"}
+            %h3.ui.horizontal.header.divider
+              OR
+            .ui.google.plus.primary.button
+              %i.google.plus.icon
+              Login with G+
+            .ui.green.button
+              Sign Up
+      .extra.content
+        %a.right.floated.created
+        %a{:href => "http://twitter.com/SarupBanskota"} Tweet to @SarupBanskota
