@@ -1,0 +1,26 @@
+.ui.stackable.grid
+  .six.wide.column
+  .four.wide.column
+    .ui.card
+      .image.dimmable
+        %img{:src => "/images/steve.jpg"}/
+
+    %h4.ui.header Create your track.
+    %p With a track, you can guide your readers through the path you took to learning a new skill.
+    %p Creating your track is super easy, leaving you to work on what you're best at - teaching.
+
+    .large.ui.button.track Get me started!
+
+  .six.wide.column
+
+.ui.modal.track
+  %i.close.icon
+  .header
+    What's this track about?
+  .content
+    = render 'form'
+
+
+
+
+

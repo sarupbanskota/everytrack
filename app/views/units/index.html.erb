@@ -1,0 +1,43 @@
+<h1>Listing units</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Track</th>
+      <th>Category</th>
+      <th>Level</th>
+      <th>Title</th>
+      <th>String,</th>
+      <th>Content</th>
+      <th>Text,</th>
+      <th>Votes</th>
+      <th>Number</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @units.each do |unit| %>
+      <tr>
+        <td><%= unit.track %></td>
+        <td><%= unit.category %></td>
+        <td><%= unit.level %></td>
+        <td><%= unit.title %></td>
+        <td><%= unit.string, %></td>
+        <td><%= unit.content %></td>
+        <td><%= unit.text, %></td>
+        <td><%= unit.votes %></td>
+        <td><%= unit.number %></td>
+        <td><%= link_to 'Show', unit %></td>
+        <td><%= link_to 'Edit', edit_unit_path(unit) %></td>
+        <td><%= link_to 'Destroy', unit, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Unit', new_unit_path %>

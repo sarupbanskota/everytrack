@@ -1,6 +1,16 @@
 $(document)
   .ready(function() {
 
+    $(".track").click(function() {
+      //alert("hello");
+      $('.ui.modal.track').modal('show');
+    });
+
+    $(".unit").click(function() {
+      //alert("hello");
+      $('.ui.modal.new.unit').modal('show');
+    });
+
     var
       changeSides = function() {
         $('.ui.shape')

@@ -10,6 +10,7 @@ class TracksController < ApplicationController
   # GET /tracks/1
   # GET /tracks/1.json
   def show
+    @unit = Unit.new
   end
 
   # GET /tracks/new
@@ -25,6 +26,7 @@ class TracksController < ApplicationController
   # POST /tracks.json
   def create
     @track = Track.new(track_params)
+    @track.user = current_user
 
     respond_to do |format|
       if @track.save
@@ -69,6 +71,6 @@ class TracksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def track_params
-      params.require(:track).permit(:user_id)
+      params.require(:track).permit(:title)
     end
 end

@@ -1,0 +1,164 @@
+.ui.piled.masthead.segment
+  .ui.page.grid
+    .column
+      .ui.hidden.transition.information
+        %h1.ui.header
+          ="#{@track.user.email} recommends picking up #{@track.title} this way." 
+          .ui.basic.button.track         
+            %i.level.down.icon
+        %p What will you share?
+        %a.large.basic.animated.ui.button{href: "/users/sign_in"}
+          .visible.content Make my everytrack
+          .hidden.content Check-me-in!
+
+
+- if @track.units.count == 0
+
+  .ui.stackable.grid
+    .six.wide.column
+    .four.wide.column
+      .ui.card
+        .image.dimmable
+          %img{:src => "/images/steve.jpg"}/
+
+      %h4.ui.header Add units.
+      %p Tracks are composed of units, that convey information, one step at a time.
+      %p So.. if a reader wants to pick up #{@track.title}, what's the best place to start?
+
+      .large.ui.button.unit Add first unit!
+
+    .six.wide.column
+
+- else
+  .ui.stackable.grid
+    .two.wide.column
+    .twelve.wide.column
+      %h3.ui.horizontal.header.divider
+        %a{:href => "#level0", :name => "level0"}
+          %i.level.down.icon
+          Level 0
+      .ui.segment
+        %h4.ui.header So you want to build things
+        %p Hackers primarily build things. That's what makes them happy.
+        %p There's a common misconception, that leads people into believing hackers are the equivalent of criminal troublemakers.. you know, breaking into your Facebook account and everything.
+      .ui.stackable.three.column.grid
+        .column
+          .ui.card
+            .ui.move.reveal.image.dimmable
+              %img.visible.content{:src => "/images/steve.jpg"}/
+              %img.hidden.content{:src => "/images/steve.jpg"}/
+        .column
+          .ui.card
+            .image.dimmable
+              %img{:src => "/images/wireframe/image.png"}/
+            .content
+              .header
+                Hacker Attitude
+              .meta
+                %a.group> programming
+                ,
+                %a.group essays
+              .description
+                If you wish to get started with the Free Software, I'd like to recommend reading some hacker-attitude oriented essays first. Here's the first:
+                = succeed "." do
+                  %a{:href => "http://www.catb.org/esr/faqs/hacker-howto.html"} Eric S. Raymond's Hacker HowTo
+            .extra.content
+              %a.right.floated.created Argue over Twitter
+              11
+              .ui.heart.rating{"data-max-rating" => "1", "data-rating" => "0"}
+                %i.icon
+              %a.friends Upvote
+        .column
+          .ui.card
+            .ui.move.reveal.image.dimmable
+              %img.visible.content{:src => "/images/steve.jpg"}/
+              %img.hidden.content{:src => "/images/steve.jpg"}/
+      %h3.ui.horizontal.header.divider
+        %a{:href => "#level1", :name => "level1"}
+          %i.level.down.icon
+          Level 1
+      .ui.segment
+        %h4.ui.header So you want to build things
+        %p Hackers primarily build things. That's what makes them happy.
+        %p There's a common misconception, that leads people into believing hackers are the equivalent of criminal troublemakers.. you know, breaking into your Facebook account and everything.
+      .ui.stackable.three.column.grid
+        .column
+          .ui.card
+            .image.dimmable
+              %img{:src => "/images/wireframe/image.png"}/
+            .content
+              .header
+                Hacker Attitude
+              .meta
+                %a.group> programming
+                ,
+                %a.group essays
+              .description
+                If you wish to get started with the Free Software, I'd like to recommend reading some hacker-attitude oriented essays first. Here's the first:
+                = succeed "." do
+                  %a{:href => "http://www.catb.org/esr/faqs/hacker-howto.html"} Eric S. Raymond's Hacker HowTo
+            .extra.content
+              %a.right.floated.created Argue over Twitter
+              11
+              .ui.heart.rating{"data-max-rating" => "1", "data-rating" => "0"}
+                %i.icon
+              %a.friends Upvote
+        .column
+          .ui.card
+            .ui.move.reveal.image.dimmable
+              %img.visible.content{:src => "/images/steve.jpg"}/
+              %img.hidden.content{:src => "/images/steve.jpg"}/
+        .column
+          .ui.card
+            .image.dimmable
+              %img{:src => "/images/wireframe/image.png"}/
+            .content
+              .header
+                Hacker Attitude
+              .meta
+                %a.group> programming
+                ,
+                %a.group essays
+              .description
+                If you wish to get started with the Free Software, I'd like to recommend reading some hacker-attitude oriented essays first. Here's the first:
+                = succeed "." do
+                  %a{:href => "http://www.catb.org/esr/faqs/hacker-howto.html"} Eric S. Raymond's Hacker HowTo
+            .extra.content
+              %a.right.floated.created Argue over Twitter
+              11
+              .ui.heart.rating{"data-max-rating" => "1", "data-rating" => "0"}
+                %i.icon
+              %a.friends Upvote
+    .two.wide.column
+  .ui.masthead.segment
+    .ui.page.grid
+      .column
+        .ui.hidden.transition.information
+          %p
+            %i.india.flag>
+            Hello from T432.
+          %br/
+          %br/
+          %br/
+
+  %p#notice= notice
+  %p
+    %strong User:
+    = @track.user
+  = link_to 'Edit', edit_track_path(@track)
+  |
+  \#{link_to 'Back', tracks_path}
+
+.ui.modal.track
+  %i.close.icon
+  .header
+    What's this track about?
+  .content
+    = render 'form'
+
+.ui.modal.new.unit
+  %i.close.icon
+  .header
+    What's this unit about?
+  .content
+    = render 'units/form'

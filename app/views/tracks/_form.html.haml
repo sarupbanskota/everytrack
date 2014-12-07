@@ -1,0 +1,13 @@
+= form_for(@track) do |f|
+  - if @track.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@track.errors.count, "error")
+        prohibited this track from being saved:
+      %ul
+        - @track.errors.full_messages.each do |msg|
+          %li= msg
+
+  .ui.massive.input.fluid.right.aligned.segment
+    = f.text_field :title, autofocus: true, placeholder: "programming, cooking, gaming, whatever.."
+  = f.submit "NEXT", {class: "ui right green basic button"}
