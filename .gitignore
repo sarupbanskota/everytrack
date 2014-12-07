@@ -18,3 +18,4 @@
 # Ignore local stuff
 notes.md
 test
+config/app_application_environment.rb
