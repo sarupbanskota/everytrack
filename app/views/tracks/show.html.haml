@@ -27,7 +27,6 @@
 
       .large.ui.button.unit Add first unit!
 
-    .six.wide.column
 
 - else
   .ui.stackable.grid
@@ -74,25 +73,18 @@
                     %i.icon
                   %a.friends Upvote
 
-    .two.wide.column
-  .ui.masthead.segment
-    .ui.page.grid
-      .column
-        .ui.hidden.transition.information
-          %p
-            %i.india.flag>
-            Hello from T432.
-          %br/
-          %br/
-          %br/
+      .large.ui.button.unit Add first unit!
 
-  %p#notice= notice
-  %p
-    %strong User:
-    = @track.user
-  = link_to 'Edit', edit_track_path(@track)
-  |
-  \#{link_to 'Back', tracks_path}
+    .ui.masthead.segment
+      .ui.page.grid
+        .column
+          .ui.hidden.transition.information
+            %p
+              %i.india.flag>
+              Hello from T432.
+            %br/
+            %br/
+            %br/
 
 .ui.modal.track
   %i.close.icon
