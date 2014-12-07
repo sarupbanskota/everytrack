@@ -49,11 +49,9 @@
 
         .ui.stackable.three.column.grid
           - level.units.each do |unit|
-            .column
-              .ui.card
-                .ui.move.reveal.image.dimmable
-                  %img.visible.content{:src => "/images/wireframe/image.png"}/
-                  %img.hidden.content{:src => "/images/steve.jpg"}/
+            -#
+              .column
+                  .large.ui.button.unit Add another unit
             .column
               .ui.card
                 .image.dimmable

@@ -26,6 +26,14 @@ class UnitsController < ApplicationController
   # POST /units.json
   def create
     @unit = Unit.new(unit_params)
+    @track = @unit.track
+    if @track.levels.last.units.count == 3
+      level = Level.new
+      level.level = @track.levels.last.level + 1
+      level.track_id = @track.id
+      level.save
+    end
+    @unit.level_id = @track.levels.last.id 
 
     respond_to do |format|
       if @unit.save

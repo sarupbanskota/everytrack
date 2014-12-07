@@ -37,6 +37,10 @@ class TracksController < ApplicationController
         format.json { render json: @track.errors, status: :unprocessable_entity }
       end
     end
+    level = Level.new
+    level.track = @track
+    level.level = 0
+    level.save
   end
 
   # PATCH/PUT /tracks/1

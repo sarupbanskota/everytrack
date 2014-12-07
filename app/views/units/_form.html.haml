@@ -16,8 +16,4 @@
     %h3 Categories
     = f.text_field :category, placeholder: "DIY"
     = f.hidden_field :track_id, value: @track.id
-    - unless @track.levels.last.level == 0
-      = f.hidden_field :level_id, value: @track.levels.last.level
-    - else
-      = f.hidden_field :level_id, value: 1
   = f.submit "ADD", {class: "ui right green basic button"}
