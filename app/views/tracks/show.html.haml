@@ -33,102 +33,48 @@
   .ui.stackable.grid
     .two.wide.column
     .twelve.wide.column
-      %h3.ui.horizontal.header.divider
-        %a{:href => "#level0", :name => "level0"}
-          %i.level.down.icon
-          Level 0
-      .ui.segment
-        %h4.ui.header So you want to build things
-        %p Hackers primarily build things. That's what makes them happy.
-        %p There's a common misconception, that leads people into believing hackers are the equivalent of criminal troublemakers.. you know, breaking into your Facebook account and everything.
-      .ui.stackable.three.column.grid
-        .column
-          .ui.card
-            .ui.move.reveal.image.dimmable
-              %img.visible.content{:src => "/images/steve.jpg"}/
-              %img.hidden.content{:src => "/images/steve.jpg"}/
-        .column
-          .ui.card
-            .image.dimmable
-              %img{:src => "/images/wireframe/image.png"}/
-            .content
-              .header
-                Hacker Attitude
-              .meta
-                %a.group> programming
-                ,
-                %a.group essays
-              .description
-                If you wish to get started with the Free Software, I'd like to recommend reading some hacker-attitude oriented essays first. Here's the first:
-                = succeed "." do
-                  %a{:href => "http://www.catb.org/esr/faqs/hacker-howto.html"} Eric S. Raymond's Hacker HowTo
-            .extra.content
-              %a.right.floated.created Argue over Twitter
-              11
-              .ui.heart.rating{"data-max-rating" => "1", "data-rating" => "0"}
-                %i.icon
-              %a.friends Upvote
-        .column
-          .ui.card
-            .ui.move.reveal.image.dimmable
-              %img.visible.content{:src => "/images/steve.jpg"}/
-              %img.hidden.content{:src => "/images/steve.jpg"}/
-      %h3.ui.horizontal.header.divider
-        %a{:href => "#level1", :name => "level1"}
-          %i.level.down.icon
-          Level 1
-      .ui.segment
-        %h4.ui.header So you want to build things
-        %p Hackers primarily build things. That's what makes them happy.
-        %p There's a common misconception, that leads people into believing hackers are the equivalent of criminal troublemakers.. you know, breaking into your Facebook account and everything.
-      .ui.stackable.three.column.grid
-        .column
-          .ui.card
-            .image.dimmable
-              %img{:src => "/images/wireframe/image.png"}/
-            .content
-              .header
-                Hacker Attitude
-              .meta
-                %a.group> programming
-                ,
-                %a.group essays
-              .description
-                If you wish to get started with the Free Software, I'd like to recommend reading some hacker-attitude oriented essays first. Here's the first:
-                = succeed "." do
-                  %a{:href => "http://www.catb.org/esr/faqs/hacker-howto.html"} Eric S. Raymond's Hacker HowTo
-            .extra.content
-              %a.right.floated.created Argue over Twitter
-              11
-              .ui.heart.rating{"data-max-rating" => "1", "data-rating" => "0"}
-                %i.icon
-              %a.friends Upvote
-        .column
-          .ui.card
-            .ui.move.reveal.image.dimmable
-              %img.visible.content{:src => "/images/steve.jpg"}/
-              %img.hidden.content{:src => "/images/steve.jpg"}/
-        .column
-          .ui.card
-            .image.dimmable
-              %img{:src => "/images/wireframe/image.png"}/
-            .content
-              .header
-                Hacker Attitude
-              .meta
-                %a.group> programming
-                ,
-                %a.group essays
-              .description
-                If you wish to get started with the Free Software, I'd like to recommend reading some hacker-attitude oriented essays first. Here's the first:
-                = succeed "." do
-                  %a{:href => "http://www.catb.org/esr/faqs/hacker-howto.html"} Eric S. Raymond's Hacker HowTo
-            .extra.content
-              %a.right.floated.created Argue over Twitter
-              11
-              .ui.heart.rating{"data-max-rating" => "1", "data-rating" => "0"}
-                %i.icon
-              %a.friends Upvote
+
+
+      - @track.levels.each do |level|
+        %h3.ui.horizontal.header.divider
+          %a{:href => "#level#{level}", :name => "level#{level}"}
+            %i.level.down.icon
+            = "Level #{level.level}"
+
+        .ui.segment
+          %h4.ui.header So you want to build things
+          %p Hackers primarily build things. That's what makes them happy.
+          %p There's a common misconception, that leads people into believing hackers are the equivalent of criminal troublemakers.. you know, breaking into your Facebook account and everything.
+
+        .ui.stackable.three.column.grid
+          - level.units.each do |unit|
+            .column
+              .ui.card
+                .ui.move.reveal.image.dimmable
+                  %img.visible.content{:src => "/images/wireframe/image.png"}/
+                  %img.hidden.content{:src => "/images/steve.jpg"}/
+            .column
+              .ui.card
+                .image.dimmable
+                  %img{:src => "/images/wireframe/image.png"}/
+                .content
+                  .header
+                    = unit.title
+                  .meta
+                    %a.group> #{unit.category}
+                    -#
+                      ,
+                      %a.group essays
+                  .description
+                    = unit.content
+
+                .extra.content
+                  %a.right.floated.created{href: "http://twitter.com/SarupBanskota"} Argue over Twitter
+                  = unit.votes
+                  .ui.heart.rating{"data-max-rating" => "1", "data-rating" => "0"}
+                    %i.icon
+                  %a.friends Upvote
+
     .two.wide.column
   .ui.masthead.segment
     .ui.page.grid
