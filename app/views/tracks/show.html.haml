@@ -34,10 +34,11 @@
     .two.wide.column
     .twelve.wide.column
 
+      .large.ui.button.unit Add another unit
 
       - @track.levels.each do |level|
         %h3.ui.horizontal.header.divider
-          %a{:href => "#level#{level}", :name => "level#{level}"}
+          %a{:href => "#level#{level.level}", :name => "level#{level.level}"}
             %i.level.down.icon
             = "Level #{level.level}"
 

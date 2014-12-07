@@ -10,6 +10,7 @@ class UnitsController < ApplicationController
   # GET /units/1
   # GET /units/1.json
   def show
+    redirect_to "/tracks/#{@unit.track_id}"
   end
 
   # GET /units/new
@@ -69,6 +70,6 @@ class UnitsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def unit_params
-      params.require(:unit).permit(:track_id, :category, :level, :title, :content, :votes)
+      params.require(:unit).permit(:track_id, :level_id, :category, :level, :title, :content, :votes)
     end
 end

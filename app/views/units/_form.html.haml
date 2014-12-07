@@ -1,33 +1,23 @@
--#
-  = form_for(@unit) do |f|
-    - if @unit.errors.any?
-      #error_explanation
-        %h2
-          = pluralize(@unit.errors.count, "error")
-          prohibited this unit from being saved:
-        %ul
-          - @unit.errors.full_messages.each do |msg|
-            %li= msg
-    .field
-      = f.label :category
-      %br/
-      = f.text_field :category
-    .field
-      = f.label :level
-      %br/
-      = f.text_field :level
-    .field
-      = f.label :title
-      %br/
-      = f.text_field :title
-    .field
-      = f.label :content
-      %br/
-      = f.text_field :content
-    .field
-      = f.label :votes
-      %br/
-      = f.text_field :votes
-      = f.hidden_field :track_id, value: @track.id
-    .actions
-      = f.submit
+= form_for(@unit) do |f|
+  - if @unit.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@unit.errors.count, "error")
+        prohibited this unit from being saved:
+      %ul
+        - @unit.errors.full_messages.each do |msg|
+          %li= msg
+
+  .ui.massive.input.fluid.segment
+    %h3 Title
+    = f.text_field :title, autofocus: true, placeholder: "understanding databases, learning to communicate, organizing the party"
+    %h3 Content
+    = f.text_field :content, placeholder: "roses are red, you are blue, oh baby, you give me the flu"
+    %h3 Categories
+    = f.text_field :category, placeholder: "DIY"
+    = f.hidden_field :track_id, value: @track.id
+    - unless @track.levels.last.level == 0
+      = f.hidden_field :level_id, value: @track.levels.last.level
+    - else
+      = f.hidden_field :level_id, value: 1
+  = f.submit "ADD", {class: "ui right green basic button"}
