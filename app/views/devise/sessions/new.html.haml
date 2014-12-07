@@ -11,8 +11,6 @@
         Sign Up
   .column
     .ui.card
-      .image.dimmable
-        %img{:src => "/images/steve.jpg"}/
       .content
         = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
           - if devise_mapping.rememberable?

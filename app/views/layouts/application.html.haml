@@ -5,8 +5,8 @@
     %meta{:content => "IE=edge,chrome=1", "http-equiv" => "X-UA-Compatible"}/
     %meta{:content => "width=device-width, initial-scale=1.0, maximum-scale=1.0", :name => "viewport"}/
     %title Koding
-    = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
-    = javascript_include_tag "application", "data-turbolinks-track" => true
+    = stylesheet_link_tag    "application", media: "all"
+    = javascript_include_tag "application"
     %link{:href => "semantic.min.css", :rel => "stylesheet", :type => "text/css"}/
     %script{:src => "semantic.min.js"}
     = csrf_meta_tags
@@ -17,14 +17,19 @@
         .column
           .ui.hidden.transition.information
             %h1.ui.header
-              .large.basic.animated.ui.button
-                - if user_signed_in?
-                  .visible.content LOGOUT
-                  = link_to "See you :)", destroy_user_session_path, :method => :delete, class: "hidden content"
-                - else
-                  .visible.content Make my everytrack
-                  .hidden.content Check-me-in!
-
               = yield(:banner) 
+            .large.basic.animated.ui.button
+              - if user_signed_in?
+                .visible.content LOGOUT
+                = link_to "See you :)", destroy_user_session_path, :method => :delete, class: "hidden content"
+              - else
+                .visible.content Make my everytrack
+                .hidden.content Check-me-in!
+            %a.large.basic.animated.ui.button{href: "/tracks"}
+              .visible.content Track listings
+              .hidden.content Gotta track-em' all!
+            %a.large.basic.animated.ui.button{href: "/tracks/new"}
+              .visible.content Feeling crafty?
+              .hidden.content Make new track!
 
     = yield

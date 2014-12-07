@@ -1,0 +1,9 @@
+- content_for :banner, "Awesome tracks people are making"
+.ui.stackable.grid
+  - @tracks.each do |track|
+    .two.wide.column
+    .four.wide.column
+      .ui.stacked.segment
+        %h4.ui.header= link_to track.title, File.join("/tracks/#{track.id}")
+        %p Crafted by #{track.user.email}, with #{track.levels.count} levels.
+    .two.wide.column

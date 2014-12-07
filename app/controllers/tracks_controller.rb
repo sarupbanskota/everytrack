@@ -1,10 +1,13 @@
 class TracksController < ApplicationController
+  before_filter :authenticate_user!, :except => [:show, :index]
   before_action :set_track, only: [:show, :edit, :update, :destroy]
+
 
   # GET /tracks
   # GET /tracks.json
   def index
     @tracks = Track.all
+    @users = User.all
   end
 
   # GET /tracks/1

@@ -6,5 +6,5 @@ Koding::Application.routes.draw do
   end
   resources :tracks
   
-  root to: "tracks#index"
+  root to: "tracks#new"
 end

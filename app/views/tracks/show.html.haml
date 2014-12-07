@@ -1,4 +1,7 @@
-- content_for :banner, "#{@track.user.email} recommends picking up #{@track.title} this way."
+- if user_signed_in? and @track.user == current_user
+  - content_for :banner, "You recommend picking up #{@track.title} this way."
+- else
+  - content_for :banner, "#{@track.user.email} recommends picking up #{@track.title} this way."
 
 - if @track.units.count == 0
 
@@ -8,20 +11,23 @@
       .ui.card
         .image.dimmable
           %img{:src => "/images/steve.jpg"}/
+      -if user_signed_in? and current_user == @track.user
+        .large.ui.button.unit Add first unit!
+        %p Tracks are composed of units, that convey information, one step at a time.
+        %p So.. if a reader wants to pick up #{@track.title}, what's the best place to start?
 
-      %h4.ui.header Add units.
-      %p Tracks are composed of units, that convey information, one step at a time.
-      %p So.. if a reader wants to pick up #{@track.title}, what's the best place to start?
 
-      .large.ui.button.unit Add first unit!
+      - else
 
+        %h4.ui.header You gotta wait!
+        %p While #{@track.user.email} recommends some units for you to read up, why not grab some coffee?
 
 - else
   .ui.stackable.grid
     .two.wide.column
     .twelve.wide.column
-
-      .large.ui.button.unit Add another unit
+      -if user_signed_in? and current_user == @track.user
+        .large.ui.button.unit Add another unit
 
       - @track.levels.each do |level|
         %h3.ui.horizontal.header.divider
@@ -29,10 +35,11 @@
             %i.level.down.icon
             = "Level #{level.level}"
 
-        .ui.segment
-          %h4.ui.header So you want to build things
-          %p Hackers primarily build things. That's what makes them happy.
-          %p There's a common misconception, that leads people into believing hackers are the equivalent of criminal troublemakers.. you know, breaking into your Facebook account and everything.
+        -#
+          .ui.segment
+            %h4.ui.header So you want to build things
+            %p Hackers primarily build things. That's what makes them happy.
+            %p There's a common misconception, that leads people into believing hackers are the equivalent of criminal troublemakers.. you know, breaking into your Facebook account and everything.
 
         .ui.stackable.three.column.grid
           - level.units.each do |unit|
@@ -60,8 +67,9 @@
                   .ui.heart.rating{"data-max-rating" => "1", "data-rating" => "0"}
                     %i.icon
                   %a.friends Upvote
-
-      .large.ui.button.unit Add first unit!
+      %br/
+      -if user_signed_in? and current_user == @track.user
+        .large.ui.button.unit Add another unit
 
     .ui.masthead.segment
       .ui.page.grid
