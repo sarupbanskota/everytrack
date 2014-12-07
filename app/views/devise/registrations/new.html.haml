@@ -2,29 +2,19 @@
   .right.aligned.column
     %h1
       %i.sign.in.icon
-      Check-in to your everytrack.
+      Already have an account? Check-in to your everytrack.
     .ui.right.aligned.segment
       -#
         %a.ui.google.plus.primary.button{href: "/"}
           %i.google.plus.icon
           Login with G+
-      %a.ui.green.button{href: "/users/sign_up"}
-        Sign Up
+      %a.ui.green.button{href: "/users/sign_in"}
+        Check-in
   .column
-    - if flash[:notice]
-      %p.ui.message.alert= flash[:notice]
-    - if flash[:alert]
-      %p.ui.message.alert= flash[:alert]
-      
     .ui.card
       .content
-        = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+        = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
           = devise_error_messages!
-          - if devise_mapping.rememberable?
-            .ui.right.aligned.segment
-              .ui.toggle.checkbox
-                = f.check_box :remember_me, {name: "rememberable"}
-                = f.label :remember_me
           .two.fields
             .required.field
               = f.label :email
@@ -37,8 +27,12 @@
               .ui.icon.input
                 = f.password_field :password, autocomplete: "off", placeholder: "Password"
                 %i.lock.icon
+              %label Confirm Password (also, memory verification)
+              .ui.icon.input
+                = f.password_field :password, autocomplete: "off", placeholder: "Password again?"
+                %i.lock.icon
             %br/
-            = f.submit "Check-in", {class: "ui green basic button"}
+            = f.submit "Sign up", {class: "ui green basic button"}
       .extra.content
         %a.right.floated.created
         %a{:href => "http://twitter.com/SarupBanskota"} Tweet to @SarupBanskota
