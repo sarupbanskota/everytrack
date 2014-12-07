@@ -12,6 +12,19 @@
     = csrf_meta_tags
 
   %body
+    .ui.piled.masthead.segment
+      .ui.page.grid
+        .column
+          .ui.hidden.transition.information
+            %h1.ui.header
+              .large.basic.animated.ui.button
+                - if user_signed_in?
+                  .visible.content LOGOUT
+                  = link_to "See you :)", destroy_user_session_path, :method => :delete, class: "hidden content"
+                - else
+                  .visible.content Make my everytrack
+                  .hidden.content Check-me-in!
+
+              = yield(:banner) 
+
     = yield
-    %p.notice= notice
-    %p.alert= alert

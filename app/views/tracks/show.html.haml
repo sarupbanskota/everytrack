@@ -1,16 +1,4 @@
-.ui.piled.masthead.segment
-  .ui.page.grid
-    .column
-      .ui.hidden.transition.information
-        %h1.ui.header
-          ="#{@track.user.email} recommends picking up #{@track.title} this way." 
-          .ui.basic.button.track         
-            %i.level.down.icon
-        %p What will you share?
-        %a.large.basic.animated.ui.button{href: "/users/sign_in"}
-          .visible.content Make my everytrack
-          .hidden.content Check-me-in!
-
+- content_for :banner, "#{@track.user.email} recommends picking up #{@track.title} this way."
 
 - if @track.units.count == 0
 
