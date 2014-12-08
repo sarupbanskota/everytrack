@@ -66,6 +66,7 @@
                   = unit.votes
                   .ui.heart.rating{"data-max-rating" => "1", "data-rating" => "0"}
                     %i.icon
+                -#
                   %a.friends Upvote
       %br/
       -if user_signed_in? and current_user == @track.user

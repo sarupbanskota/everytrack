@@ -15,10 +15,13 @@
       %p.ui.message.alert= flash[:notice]
     - if flash[:alert]
       %p.ui.message.alert= flash[:alert]
-      
+
     .ui.card
       .content
         = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+          .ui.message
+            You'll get confirmation email once you sign up, if you don't, go to the
+            %a{href: "/users/confirmation/new"} confirmation link.
           = devise_error_messages!
           - if devise_mapping.rememberable?
             .ui.right.aligned.segment
