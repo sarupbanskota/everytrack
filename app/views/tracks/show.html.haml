@@ -1,3 +1,4 @@
+- markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML)
 - if user_signed_in? and @track.user == current_user
   - content_for :banner, "You recommend picking up #{@track.title} this way."
 - else
@@ -59,7 +60,7 @@
                       ,
                       %a.group essays
                   .description
-                    = unit.content
+                    = raw markdown.render unit.content
 
                 .extra.content
                   %a.right.floated.created{href: "http://twitter.com/SarupBanskota"} Argue over Twitter
