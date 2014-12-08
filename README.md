@@ -1,14 +1,13 @@
 everytrack
 ==========
 
-I'm pretty lazy to write a full blown README, so I've just stripped off my ABOUT page from the Koding Hackathon teams list.
-
-# banas
-
-banas is a single-person team comprising [this kid](http://twitter.com/SarupBanskota).
-
+I'm pretty lazy to write a full blown README, so I've just stripped off [my ABOUT page from the Koding Hackathon teams list](https://github.com/sarupbanskota/global.hackathon/blob/master/Teams/banas/ABOUT.md).
 
 # whoami
+
+[![Koding Hackathon](/images/badge.png?raw=true "Koding Hackathon")](https://koding.com/Hackathon)
+
+banas is a single-person team comprising [this kid](http://twitter.com/SarupBanskota).
 
 I'm Sarup Banskota, undergrad student and the usual tinkerer. I have my sememster finals going on. Sleeping wouldn't make a great excuse to friends who'd like me to *group study*, so I decided to strike point 8 off my [ideas list](http://sarupbanskota.github.io/ideas.html) instead.
 
@@ -17,7 +16,7 @@ I'm Sarup Banskota, undergrad student and the usual tinkerer. I have my sememste
 
 If I had a $ for every time a junior/friend/parent asked me how to [contribute to Free Software](http://www.slideshare.net/sarupbanskota/sarup-fossasia-1), [plan a college club event](https://fedoraproject.org/wiki/Coimbatore_Fedora_Contribution_Camp) or [make the printer work](http://lmgtfy.com/?q=printer+not+working), I would consider sponsoring this hackathon.
 
-All of us have seen some variant of those links, and while I agree the resolute ones will make the best use of it, most folks need things to be presented information in a manner they're comfortable with:
+All of us have seen some variant of those links, and while I agree the resolute ones will make the best use of it, most folks need things to be presented in a manner they're comfortable with:
 
 > If it's on Wikipedia, it must be right.
 
@@ -32,3 +31,7 @@ With the exams around, I have humble hopes at the moment. Thanks to the hackatho
 I'll publish everything on [this GitHub repo](https://github.com/sarupbanskota/everytrack), so that's where you go to follow the action.
 
 Cheers!
+
+# tech used so far
+
+The app itself runs Ruby on Rails, there's redcarpet being used for the markdown, devise for auth, and semantic-ui for the front end goodness :)
