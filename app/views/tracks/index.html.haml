@@ -1,9 +1,20 @@
 - content_for :banner, "Awesome tracks people are making"
 .ui.stackable.grid
-  - @tracks.each do |track|
-    .two.wide.column
-    .four.wide.column
-      .ui.stacked.segment
-        %h4.ui.header= link_to track.title, File.join("/tracks/#{track.id}")
-        %p Crafted by #{track.user.email}, with #{track.levels.count} levels.
-    .two.wide.column
+  - if @tracks.empty?
+
+    .ui.stackable.grid
+      .six.wide.column
+      .four.wide.column
+        .ui.card
+          .image.dimmable
+            %img{:src => "/images/steve.jpg"}/
+        %a.large.ui.button{href: "/users/sign_in"} Get famous, make the first track!
+
+  - else
+    - @tracks.each do |track|
+      .two.wide.column
+      .four.wide.column
+        .ui.stacked.segment
+          %h4.ui.header= link_to track.title, File.join("/tracks/#{track.id}")
+          %p Crafted by #{track.user.email}, with #{track.levels.count} levels.
+      .two.wide.column

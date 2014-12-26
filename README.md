@@ -1,37 +1,28 @@
-everytrack
-==========
-
-I'm pretty lazy to write a full blown README, so I've just stripped off [my ABOUT page from the Koding Hackathon teams list](https://github.com/sarupbanskota/global.hackathon/blob/master/Teams/banas/ABOUT.md).
-
-# whoami
-
-[![Koding Hackathon](/images/badge.png?raw=true "Koding Hackathon")](https://koding.com/Hackathon)
-
-banas is a single-person team comprising [this kid](http://twitter.com/SarupBanskota).
-
-I'm Sarup Banskota, undergrad student and the usual tinkerer. I have my sememster finals going on. Sleeping wouldn't make a great excuse to friends who'd like me to *group study*, so I decided to strike point 8 off my [ideas list](http://sarupbanskota.github.io/ideas.html) instead.
-
+Everytrack is being written keeping FOSS communities in mind. 
 
 # the_big_idea
 
-If I had a $ for every time a junior/friend/parent asked me how to [contribute to Free Software](http://www.slideshare.net/sarupbanskota/sarup-fossasia-1), [plan a college club event](https://fedoraproject.org/wiki/Coimbatore_Fedora_Contribution_Camp) or [make the printer work](http://lmgtfy.com/?q=printer+not+working), I would consider sponsoring this hackathon.
+If I had a $ for every time a junior/friend/parent asked me how to [contribute to Free Software](http://www.slideshare.net/sarupbanskota/sarup-fossasia-1), [plan a college club event](https://fedoraproject.org/wiki/Coimbatore_Fedora_Contribution_Camp) or [make the printer work](http://lmgtfy.com/?q=printer+not+working), I probably wouldn't have the time to answer them.
 
-All of us have seen some variant of those links, and while I agree the resolute ones will make the best use of it, most folks need things to be presented in a manner they're comfortable with:
+All of us have seen some variant of those links, and while I agree the resolute ones make the best use of them, most folks need things to be presented in a manner they're comfortable with:
 
 > If it's on Wikipedia, it must be right.
 
-I'd like to build a platform where people who want to share can list a bunch of resources in a consistent manner. It's going to be community driven. I want to make it free (as in freedom, beer optional). 
+Everytrack intends to be that platform where people who want to share resources can list a bunch, consistently. It's going to be community driven. It's free software (as in freedom, beer optional). 
 
-Oh the thought of being able to provide a [sarupbanskota.islearn.in/programming](http://www.irishslang.info/images/funnyimages/Funny-meme-I-changed-my-passwords-to.jpg) that everyone can share around :)
+
+# how_it_works
+
+It's pretty simple. If you are into that kind of thing, set up your instance of everytrack ([help!](https://github.com/sarupbanskota/everytrack/wiki/setup)), or simply try out a [demo](http://everytrack-banas.rhcloud.com). Get yourself an account, create a track on a topic you love, and share it around.
+
+Oh the thought of being able to provide a [johndoe.islearn.in/programming](http://www.irishslang.info/images/funnyimages/Funny-meme-I-changed-my-passwords-to.jpg) that everyone can share around :)
 
 # the_big_plan
-
-With the exams around, I have humble hopes at the moment. Thanks to the hackathon excitement, I'd like to get the project kickstarted and see how it rolls from there.
 
 I'll publish everything on [this GitHub repo](https://github.com/sarupbanskota/everytrack), so that's where you go to follow the action.
 
 Cheers!
 
-# tech used so far
+# tech_so_far
 
 The app itself runs Ruby on Rails, there's redcarpet being used for the markdown, devise for auth, and semantic-ui for the front end goodness :)

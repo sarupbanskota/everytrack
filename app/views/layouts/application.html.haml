@@ -24,7 +24,7 @@
                 = link_to "See you :)", destroy_user_session_path, :method => :delete, class: "hidden content"
               - else
                 .visible.content Make my everytrack
-                .hidden.content Check-me-in!
+                %a.hidden.content{href: "users/sign_in"} Check-me-in!
             %a.large.basic.animated.ui.button{href: "/tracks"}
               .visible.content Track listings
               .hidden.content Gotta track-em' all!
