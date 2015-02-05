@@ -20,6 +20,9 @@ class UnitsController < ApplicationController
 
   # GET /units/1/edit
   def edit
+    @unit = Unit.find params[:id]
+    @track = Track.find @unit.track_id 
+    @units = @track.units
   end
 
   # POST /units

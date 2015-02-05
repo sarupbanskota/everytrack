@@ -29,6 +29,8 @@
     .twelve.wide.column
       -if user_signed_in? and current_user == @track.user
         .large.ui.button.unit Add another unit
+        .large.ui.button.right.floated
+          = link_to "Delete Track", @track_path, method: :delete, data: { confirm: "Are you sure?" }
 
       - @track.levels.each do |level|
         %h3.ui.horizontal.header.divider
@@ -65,10 +67,7 @@
                 .extra.content
                   %a.right.floated.created{href: "http://twitter.com/SarupBanskota"} Argue over Twitter
                   = unit.votes
-                  .ui.heart.rating{"data-max-rating" => "1", "data-rating" => "0"}
-                    %i.icon
-                -#
-                  %a.friends Upvote
+                  = link_to "Edit", edit_unit_path(unit)
       %br/
       -if user_signed_in? and current_user == @track.user
         .large.ui.button.unit Add another unit

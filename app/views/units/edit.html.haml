@@ -1,0 +1,16 @@
+- markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML)
+- if user_signed_in? and @track.user == current_user
+  - content_for :banner, "You recommend picking up #{@track.title} this way."
+- else
+  - content_for :banner, "#{@track.user.email} recommends picking up #{@track.title} this way."
+
+
+.ui.stackable.grid
+  .two.wide.column
+  .twelve.wide.column
+    -if user_signed_in? and current_user == @track.user
+      .large.ui.button 
+        = link_to "Back to track", track_path(@track)
+      .large.ui.button.right.floated
+        = link_to "Delete Unit", @unit_path, method: :delete, data: { confirm: "Are you sure?" }
+      = render 'form'
